@@ -2,19 +2,23 @@ from setuptools import setup, find_packages
 setup(
     name = "TEMPLATE",
     version = "0.1",
-    packages = ( 'aminatorplugins', ),
+    packages = find_packages(),
     namespace_packages = ( 'aminatorplugins', ),
 
-    # Project uses reStructuredText, so ensure that the docutils get
-    # installed or upgraded on the target machine
-    install_requires = [],
+    data_files = [
+        ('/etc/aminator/plugins', ['default_conf/aminatorplugins.TYPE.my_plugin.yml']),
+    ],
 
-    package_data = { },
+    entry_points = {
+       'aminator.plugins.TYPE': [
+           'my_plugin = aminatorplugins.TYPE.my_plugin:MyPluginClass',
+       ],
+    },
 
     # metadata for upload to PyPI
     author = "AUTHOR",
     author_email = "EMAIL",
     description = "DESCRIPTION",
-    license = "APACHE 2.0",
+    license = "Apache 2.0",
     keywords = "aminator plugin",
 )
