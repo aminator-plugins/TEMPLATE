@@ -17,13 +17,16 @@ Below is an example of a provisioner plugin's folder structure.
 ```
 
 ### setup.py
-The `setup.py` file is a standard setuptools file, but there are some key points of the file that
+The `setup.py` file is a standard [setuptools](http://pythonhosted.org/setuptools/setuptools.html) file, but there are some key points of the file that
 are vital for correct operation with aminator.
 
 #### Namespace package
 Firstly, to make sure that your plugin is able to be picked up, you must declare that you are
 providing a namespace package. Doing so allows multiple installed packages to share the same
-namespace. This is done by adding the line `namespace_packages = ( 'aminatorplugins', ),`
+namespace. This is done by adding the line 
+```
+namespace_packages = ( 'aminatorplugins', ),
+```
 
 #### Data files
 Next we need to ensure that any configuration files needed by your plugin, is copied to the standard
